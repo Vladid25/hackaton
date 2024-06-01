@@ -6,6 +6,7 @@
   right: 0;
   left: 0;
   padding: 10px 0;
+  z-index: 9;
 }
 .header__nav {
   display: flex;
@@ -79,7 +80,7 @@
 }
 
 .table-responsive {
-  overflow-x: auto;
+  margin: 0 auto;
 }
 
 .sample-data-table {
@@ -214,6 +215,7 @@ a {
 .analysis__item-title {
   font-weight: 800;
   font-size: 36px;
+  line-height: 50px;
   text-transform: uppercase;
   letter-spacing: 20px;
 }
@@ -226,6 +228,7 @@ a {
   border-radius: 30px;
   max-width: calc((100% - 30px) / 2);
   border-radius: 30px;
+  box-shadow: inset 0px 0px 15px rgba(255, 255, 255, 0.7);
 }
 .analysis__item-img, .analysis__item-text {
   flex-basis: calc((100% - 30px) / 2);
@@ -233,4 +236,20 @@ a {
 
 .structure-section {
   padding-top: 200px;
+}
+
+.header {
+  z-index: 9;
+}
+
+.test {
+  width: 100%;
+}
+
+.random__title {
+  margin-top: 90px;
+}
+
+.img-large {
+  max-width: 800px !important;
 }/*# sourceMappingURL=styles.css.map */
