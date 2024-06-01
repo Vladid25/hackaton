@@ -1,5 +1,5 @@
 .header {
-  background: linear-gradient(to right, #141496, #5c0aa9);
+  background: linear-gradient(to right, #141496, #4c098a);
   border-bottom: 3px solid #ffffff;
   box-shadow: 0px 10px 10px 10px #ffffff;
   padding: 10px 0;
@@ -33,6 +33,42 @@
 .structure__text {
   max-width: 1000px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.description__items {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.description__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 0 10px #6e6e6e;
+  border-radius: 30px;
+  cursor: pointer;
+  color: rgb(33, 33, 33);
+  transition: transform 0.3s;
+  min-height: 550px;
+  flex-basis: calc((100% - 40px) / 3);
+}
+.description__item:hover {
+  transform: translateY(-5px);
+}
+.description__item-img {
+  max-width: 200px;
+  border-radius: 50%;
+}
+.description__item-subtitle {
+  font-weight: 600;
+  font-size: 24px;
+}
+.description__item-text {
+  line-height: 30px;
   text-align: center;
 }
 
@@ -112,5 +148,43 @@ a {
 
 .main {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #141496, #5c0aa9);
+  background: linear-gradient(to bottom, #141496, #4c098a);
+}
+
+.analysis__items {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.analysis__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 3px solid #ffffff;
+  padding: 50px 30px;
+  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.3);
+}
+.analysis__item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  min-height: 400px;
+}
+.analysis__item-title {
+  font-weight: 800;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 20px;
+}
+.analysis__item-text {
+  line-height: 40px;
+}
+.analysis__item-img {
+  border-radius: 30px;
+}
+.analysis__item-img, .analysis__item-text {
+  flex-basis: calc((100% - 30px) / 2);
 }/*# sourceMappingURL=styles.css.map */

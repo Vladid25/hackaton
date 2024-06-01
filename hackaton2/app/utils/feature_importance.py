@@ -2,23 +2,24 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
 
 def feature_importance(data):
     X = data.iloc[:, :-1]
     y = data.iloc[:, -1]
 
     if y.dtype == 'object':
-        y = LabelEncoder().fit_transform(y)
+        le = LabelEncoder()
+        y = le.fit_transform(y)
 
-    X = X.applymap(str)
 
-    X = X.select_dtypes(exclude=['datetime'])
+    numerical_features = X.select_dtypes(include=['number']).columns
+    categorical_features = X.select_dtypes(include=['object']).columns
 
-    object_columns = X.select_dtypes(include=['object']).columns
-    label_encoders = {column: LabelEncoder() for column in object_columns}
-    for column in object_columns:
+    label_encoders = {column: LabelEncoder() for column in categorical_features}
+    for column in categorical_features:
         X[column] = label_encoders[column].fit_transform(X[column])
+
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 

@@ -1,6 +1,8 @@
 @import 'colors';
 @import 'header';
 @import 'structure';
+@import 'description';
+@import 'table';
 
 html {
     box-sizing: border-box;
@@ -83,3 +85,43 @@ html {
     background: linear-gradient(to bottom, $color-gradient-start, $color-gradient-end);
 }
 
+.analysis{
+  &__items{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  &__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background-color: transparent;
+    border: 3px solid $color-text;
+    padding: 50px 30px;
+
+    box-shadow: 0px 0px 30px rgba($color-text, .3);
+    &-content{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      min-height: 400px;
+    }
+    &-title{
+      font-weight: 800;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 20px;
+    }
+    &-text{
+      line-height: 40px;
+    }
+    &-img{
+      border-radius: 30px;
+    }
+    &-img, &-text{
+      flex-basis: calc((100% - 30px) / 2);
+    }
+  }
+}

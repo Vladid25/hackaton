@@ -24,16 +24,16 @@
                             <a href="#structure" class="header__link">Структура</a>
                         </li>
                         <li class="header__item">
-                            <a href="#" class="header__link">lorem</a>
+                            <a href="#" class="header__link">Опис</a>
                         </li>
                         <li class="header__item">
-                            <a href="#" class="header__link">lorem</a>
+                            <a href="#" class="header__link">Аналітика</a>
                         </li>
                         <li class="header__item">
-                            <a href="#" class="header__link">lorem</a>
+                            <a href="#" class="header__link">Візуалізація</a>
                         </li>
                         <li class="header__item">
-                            <a href="#" class="header__link">lorem</a>
+                            <a href="#" class="header__link">Висновок</a>
                         </li>
                     </ul>
                 </nav>
@@ -48,6 +48,124 @@
                 </div>
             </div>
         </section>
+        <section class="container">
+            {% if sample_data %}
+            <div class="table-responsive">
+                <table class="sample-data-table">
+                    {{ sample_data|safe }}
+                </table>
+            </div>
+            {% endif %}
+    
+            {% if analysis %}
+            <h2>Data Analysis</h2>
+            <div class="table-responsive">
+                {{ analysis|safe }}
+            </div>
+            {% endif %}
+    
+            {% if outliers_text %}
+            <h2>Outliers Detection</h2>
+            <div class="table-responsive">
+                {{ outliers_text|safe }}
+            </div>
+            {% endif %}
+            <section>
+                <div class="container">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Колонка</th>
+                                    <th>Тип даних</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if sample_data %}
+                                {% for column in sample_data.columns %}
+                                <tr>
+                                    <td>{{ column }}</td>
+                                    <td>{{ sample_data[column].dtype }}</td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <h2 class="text-center mb-4">Data Visualization</h2>
+            
+            </div>
+    
+            {% if feature_importance_text %}
+            <h2>Feature Importance</h2>
+            <div class="table-responsive">
+                {{ feature_importance_text|safe }}
+            </div>
+            {% endif %}
+           </div>       
+        </section>
+        
+        <section class="section description-section" id="description">
+            <div class="container">
+                <div class="description__inner">
+                    <h2 class="title description__title">Загальний Опис Даних</h2>
+                    <ul class="description__items">
+                        <li class="description__item">
+                            <img src="../static/images/1.png" alt="" class="description__item-img">
+                            <h3 class="description__item-subtitle">Аналіз Продажів</h3>
+                            <p class="description__item-text">Цей набір даних відображає продажі товарів у підрозділах. Він містить інформацію про категорії та назви товарів, дати та часи продажів, кількість проданих одиниць і загальну суму продажу. </p>
+                        </li>
+                        <li class="description__item">
+                            <img src="../static/images/2.jfif" alt="" class="description__item-img">
+                            <h3 class="description__item-subtitle">Популярні товари</h3>
+                            <p class="description__item-text">Аналізуючи ці дані, можна визначити популярні товари та пікові періоди продажів, що допоможе ефективніше керувати запасами та розробляти маркетингові стратегії.</p>
+                        </li>
+                        <li class="description__item">
+                            <img src="../static/images/3.jfif" alt="" class="description__item-img">
+                            <h3 class="description__item-subtitle">Оптимізація роботи</h3>
+                            <p class="description__item-text">Ці дані корисні для прийняття обґрунтованих рішень щодо поповнення товарних запасів та оптимізації роботи підрозділу, що позитивно вплине на дохід і задоволеність покупців.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="analysis-section" id="analysis">
+            <div class="container">
+                <div class="analysis__inner">
+                    <h2 class="title analysis__title">Візуалізація</h2>
+                   <ul class="analysis__items">
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">title</h3>
+                       <div class="analysis__item-content">
+                            <p class="analysis__item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab corporis saepe aperiam necessitatibus voluptates? Beatae minus quae ex eum doloremque voluptatum qui. Veritatis odit, quos accusamus molestias nobis rerum id?</p>
+                            <img src="" alt="" class="analysis__item-img">
+                       </div>
+                    </li>
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">title</h3>
+                        <div class="analysis__item-content">
+                                <img src="" alt="" class="analysis__item-img">
+                             <p class="analysis__item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab corporis saepe aperiam necessitatibus voluptates? Beatae minus quae ex eum doloremque voluptatum qui. Veritatis odit, quos accusamus molestias nobis rerum id?</p>
+                        </div>
+                    </li>
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">title</h3>
+                       <div class="analysis__item-content">
+                            <p class="analysis__item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab corporis saepe aperiam necessitatibus voluptates? Beatae minus quae ex eum doloremque voluptatum qui. Veritatis odit, quos accusamus molestias nobis rerum id?</p>
+                            <img src="" alt="" class="analysis__item-img">
+                       </div>
+                    </li>
+                   </ul>
+                </div>
+            </div>
+        </section>
+
+       <section>
+            <h2 class="title">Висновок</h2>
+            <p class="structure_txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum in eligendi velit aperiam, iure sit, facilis tempore saepe temporibus obcaecati hic iusto. Voluptate at aliquid provident doloribus, explicabo quam cupiditate.</p>
+       </section>
     </main>
 </body>
 </html>
