@@ -7,7 +7,7 @@ from .utils.feature_importance import feature_importance
 
 @app.route('/')
 def index():
-    data = pd.read_excel('app/static/uploads/Online Sales Data.xlsx')
+    data = pd.read_excel('hackaton/hackaton2/app/static/uploads/Online Sales Data.xlsx')
 
     # Вибірка перших 5 рядків даних
     sample_data = data.head(5).to_html(classes='table table-striped', index=False)
