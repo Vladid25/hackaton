@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.express as px
 
 def visualize_data(data):
     # Візуалізація розподілу даних
@@ -10,6 +11,7 @@ def visualize_data(data):
     data.select_dtypes(include=['float64', 'int64']).plot(kind='box', subplots=True, layout=(2, 3), figsize=(15, 10), title='Boxplot for Numerical Columns')
     plt.savefig('app/static/images/boxplot.png')
     plt.close()
+
     # Видалення нечислових даних для кореляційної матриці
     numeric_data = data.select_dtypes(include=['float64', 'int64'])
     # Кореляційна матриця
@@ -25,3 +27,4 @@ def visualize_data(data):
         plt.title(f'Distribution of {column}')
         plt.savefig(f'app/static/images/distribution_{column}.png')
         plt.close()
+    
