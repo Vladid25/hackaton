@@ -9,6 +9,7 @@ html {
     font-weight: 500;
     color: $color-text;
     font-family: "Montserrat";
+    position: relative;
   }
   
   *, *:before, *:after {
@@ -118,10 +119,19 @@ html {
       line-height: 40px;
     }
     &-img{
+      padding: 10px;
+      border: 1px solid $color-text;
+      border-radius: 30px;
+      max-width: calc((100% - 30px) / 2);
       border-radius: 30px;
     }
     &-img, &-text{
       flex-basis: calc((100% - 30px) / 2);
     }
+  }
+}
+.structure{
+  &-section{
+      padding-top: 200px;
   }
 }

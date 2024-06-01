@@ -1,7 +1,10 @@
 .header{
     background: linear-gradient(to right, $color-gradient-start, $color-gradient-end);
     border-bottom: 3px solid $color-text;
-    box-shadow: 0px 10px 10px 10px $color-text;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
     padding: 10px 0;
     &__nav{
         display: flex;
