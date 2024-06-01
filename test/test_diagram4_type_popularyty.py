@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import numpy as np
 
 # Вказання повного шляху до файлу
 filename = 'Data_set.xlsx'
@@ -26,8 +27,10 @@ data['Сума'] = pd.to_numeric(data['Сума'], errors='coerce')
 # Групування даних за підрозділами та підрахунок загальної кількості продажів для кожного підрозділу
 sales_by_department = data.groupby('Подразделение')['Кількість'].sum()
 
-# Створення гармонійної кольорової палітри
-colors = plt.get_cmap('tab20').colors
+# Створення градієнтного кольорового масиву від фіолетового до зеленого
+num_colors = len(sales_by_department)
+gradient = np.linspace(0, 1, num_colors)
+colors = plt.cm.viridis(gradient)
 
 # Створення кругової діаграми
 plt.figure(figsize=(12, 7))
@@ -38,11 +41,6 @@ for autotext in autotexts:
     autotext.set_color('white')
     autotext.set_fontsize(8)
 
-# Додавання білої "пони" для більш виразного відображення діаграми
-centre_circle = plt.Circle((0,0),0.70,fc='white')
-fig = plt.gcf()
-fig.gca().add_artist(centre_circle)
-
 # Винесення підписів ліворуч з маленькими кольоровими квадратиками
 plt.legend(wedges, [f'{dept} - {pct}' for dept, pct in zip(sales_by_department.index, [f'{p:.1f}%' for p in sales_by_department/sales_by_department.sum()*100])], title="Підрозділи", loc="center left", bbox_to_anchor=(-0.1, 0.5), fontsize='small', fancybox=True, shadow=True)
 
@@ -51,7 +49,7 @@ plt.title('Кількість продажів по підрозділах')
 plt.axis('equal')  
 
 # Збереження діаграми у файл
-plt.savefig('sales_by_department_pie_with_legend.png', bbox_inches='tight')
+plt.savefig('diagram4_sales_by_department_pie_with_legend.png', bbox_inches='tight')
 
 # Показ діаграми
 plt.show()
