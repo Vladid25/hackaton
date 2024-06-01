@@ -53,53 +53,6 @@
             {{ analysis|safe }}
         </div>
         {% endif %}
-
-        {% if outliers_text %}
-        <h2>Outliers Detection</h2>
-        <div class="table-responsive">
-            {{ outliers_text|safe }}
-        </div>
-        {% endif %}
-
-        <h2 class="text-center mb-4">Data Visualization</h2>
-        <div class="row">
-            <div class="col-md-12 mb-4">
-                <div class="image-container">
-                    <h3>Histogram</h3>
-                    <img src="{{ url_for('static', filename='images/histogram.png') }}" alt="Histogram" class="img-fluid">
-                </div>
-            </div>
-
-            <div class="col-md-12 mb-4">
-                <div class="image-container">
-                    <h3>Boxplot</h3>
-                    <img src="{{ url_for('static', filename='images/boxplot.png') }}" alt="Boxplot" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-md-12 mb-4">
-                <div class="image-container">
-                    <h3>Correlation Matrix</h3>
-                    <img src="{{ url_for('static', filename='images/correlation_matrix.png') }}" alt="Correlation Matrix" class="img-fluid">
-                </div>
-            </div>
-            {% if sample_data %}
-            {% for column in sample_data.columns %}
-            <div class="col-md-12 mb-4">
-                <div class="image-container">
-                    <h3>Distribution of {{ column }}</h3>
-                    <img src="{{ url_for('static', filename='images/distribution_' ~ column ~ '.png') }}" alt="Distribution of {{ column }}" class="img-fluid">
-                </div>
-            </div>
-            {% endfor %}
-            {% endif %}
-        </div>
-
-        {% if feature_importance_text %}
-        <h2>Feature Importance</h2>
-        <div class="table-responsive">
-            {{ feature_importance_text|safe }}
-        </div>
-        {% endif %}
     </main>
 
     <footer class="footer">

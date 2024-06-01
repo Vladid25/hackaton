@@ -1,19 +1,13 @@
+# feature_importance.py
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
 def feature_importance(data):
-    # Припускаємо, що остання колонка є цільовою змінною
-    X = data.iloc[:, :-1]
-    y = data.iloc[:, -1]
-
-    # Перетворення цільової змінної на числові значення, якщо вона категоріальна
-    if y.dtype == 'object':
-        y = LabelEncoder().fit_transform(y)
-
-    # Видалення колонок з датами
-    X = X.select_dtypes(exclude=['datetime'])
+    # Припускаємо, що колонка "Кількість" є цільовою змінною
+    X = data.drop(columns=["Кількість"])
+    y = data["Кількість"]
 
     # Кодування категоріальних змінних
     label_encoders = {}
