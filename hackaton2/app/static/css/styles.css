@@ -252,4 +252,41 @@ a {
 
 .img-large {
   max-width: 800px !important;
+}
+
+.machine-learning__list {
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+}
+.machine-learning__item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.machine-learning__img {
+  padding-bottom: 10px;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid #ffffff;
+}
+.machine-learning__title {
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 5px;
+  font-size: 24px;
+  border-bottom: 3px solid #ffffff;
+  padding-bottom: 30px;
+}
+
+.conclusion__text {
+  text-align: center;
+  line-height: 3;
+}
+
+.table-responsive {
+  margin-bottom: 80px;
 }/*# sourceMappingURL=styles.css.map */
